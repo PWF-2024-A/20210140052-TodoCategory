@@ -9,8 +9,10 @@ use Illuminate\Validation\Rule;
 
 class TodoController extends Controller
 {
+
     public function index()
     {
+
         $todos = Todo::with('category')->where('user_id', auth()->user()->id)
             ->orderBy('is_complete', 'asc')
             ->orderBy('created_at', 'desc')
